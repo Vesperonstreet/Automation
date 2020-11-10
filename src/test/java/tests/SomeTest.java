@@ -30,7 +30,6 @@ public class SomeTest extends BaseTest {
 
  /* ----------------------------------------------------------------------------------------------
 
-
     private By loginField = By.id("login_field");
     private By passwordField = By.id("password");
     private By signInButton = By.id("commit");
