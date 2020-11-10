@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPageObject;
-
 import java.util.NoSuchElementException;
 
 public class LoginPageTest extends BaseTest{
