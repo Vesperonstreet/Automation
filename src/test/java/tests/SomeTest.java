@@ -1,10 +1,42 @@
+package tests;
+
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.BasePage;
+import pages.LoginPage;
+import pages.LoginPageObject;
+
 import java.util.concurrent.TimeUnit;
 
-public class SomeTest {
+public class SomeTest extends BaseTest {
+
+    private LoginPageObject page;
+
+    @Before()
+    public void setPage(){
+        page = new LoginPageObject(driver);
+    }
+
+
+    @Test()
+    public void ourTest(){
+        page.checkAuthFields();
+    }
+}
+
+
+
+ /*
+    ----------------------------------------------------------------------------------------------
+
+
+    private By loginField = By.id("login_field");
+    private By passwordField = By.id("password");
+    private By signInButton = By.id("commit");
 
     private WebDriver driver;
 
@@ -17,8 +49,6 @@ public class SomeTest {
 
         this.driver = new ChromeDriver();
 
-
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
@@ -30,4 +60,4 @@ public class SomeTest {
 //        Assert.assertEquals("Message", "Expected", "Not Expected");
 
     }
-}
+*/
