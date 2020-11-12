@@ -1,12 +1,17 @@
 package pages;
 
+import helpers.Level;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPageObject extends BasePage {
+import static helpers.ColorPrinter.printColorMessage;
+import static helpers.ColorPrinter.printMessageInYellow;
+import static helpers.Level.INFO;
 
-    private final static String Title = "Stranica avtorisatsii";
+public class LoginPage extends BasePage {
+
+    private final static String Title = "Страница авторизации";
 
     private final By loginField = By.id("login_field");
     private final By passwordField = By.id("password");
@@ -14,54 +19,54 @@ public class LoginPageObject extends BasePage {
 
     private final By errorMessage = By.xpath("//div[@id = 'login']/p");
 
-    private final By message = By.xpath("//div[@class = 'container-lg px-23']");
+    private final By message = By.xpath("//div[contains(@class, 'container-lg px-')]");
 
 
-    public LoginPageObject(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         super(driver, Title);
     }
 
 
-    public LoginPageObject LoginNegative(String login, String password) {
+    public LoginPage LoginNegative(String login, String password) {
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
-        return new LoginPageObject(driver);
+        return new LoginPage(driver);
     }
 
     public MainPage login(String login, String password){
-        log.info("Avtorizatsia v prilojenie");
+        printColorMessage("Авторизация в приложение", log, Level.INFO);
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
-        log.info("Avtorizatsia uspeshna");
+        printColorMessage("Авторизация успешна", log, Level.INFO);
         return new MainPage(driver);
     }
 
 
-    public LoginPageObject validateErrorMessage(String message, boolean isAdmin){
+    public LoginPage validateErrorMessage(String message, boolean isAdmin){
         Assert.assertEquals(message, driver.findElement(errorMessage).getText());
         return this;
     }
 
-    public LoginPageObject validateErrorMessage(String message){
+    public LoginPage validateErrorMessage(String message){
         Assert.assertEquals(message, driver.findElement(this.message).getText());
         return this;
     }
 
 
-    public LoginPageObject returnToLoginPage(){
+    public LoginPage returnToLoginPage(){
         driver.navigate().back();
-        return new LoginPageObject(driver);
+        return new LoginPage(driver);
     }
 
 
-    public LoginPageObject checkAuthFields(){
-        log.info("Validatsia");
+    public LoginPage checkAuthFields(){
+        printColorMessage("Валидация", log, Level.INFO);
         Assert.assertTrue("Поле Логин видимо", this.driver.findElement(loginField).isDisplayed());
         Assert.assertTrue("Поле Пароль видимо", this.driver.findElement(passwordField).isDisplayed());
         Assert.assertTrue("Кнопка Войти видима", this.driver.findElement(signInButton).isDisplayed());
-       log.info("Polia vidnu");
+        printColorMessage("Поля видны", log, Level.INFO);
         return this;
     }
 }

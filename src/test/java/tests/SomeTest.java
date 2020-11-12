@@ -1,15 +1,15 @@
 package tests;
 
 import org.junit.Before;
-import pages.LoginPageObject;
+import pages.LoginPage;
 
 public class SomeTest extends BaseTest {
 
-    private LoginPageObject page;
+    private LoginPage page;
 
     @Before()
     public void setPage(){
-        page = new LoginPageObject(driver);
+        page = new LoginPage(driver);
     }
 
 
