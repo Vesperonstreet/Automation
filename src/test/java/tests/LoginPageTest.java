@@ -28,13 +28,31 @@ public class LoginPageTest extends BaseTest{
     public void negativeAuthTest(){
         try {
             page.checkAuthFields()
-                    .login("admin", "admin")
+                    .LoginNegative("admin", "admin")
                     .validateErrorMessage(errorMessage, true)
                     .returnToLoginPage()
-                    .login("login", "password")
+                    .LoginNegative("login", "password")
                     .validateErrorMessage(invalidMessage);
         } catch (NoSuchElementException e){
             Assert.fail(e.getMessage());
         }
+    }
+
+    @Test
+    public void checkPositiveLogin(){
+        try {
+            page.checkAuthFields()
+                    .login(System.getProperty("login"), System.getProperty("password"))
+                    .validateLogin();
+        } catch (NoSuchElementException e){
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    // mvn test -Dname=value -Dkey=value
+    @Test
+    public void showSystemVars(){
+        System.out.println(System.getProperty("name"));
+        System.out.println(System.getProperty("key"));
     }
 }

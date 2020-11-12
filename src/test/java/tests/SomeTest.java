@@ -22,7 +22,7 @@ public class SomeTest extends BaseTest {
     }
 
 
-    @Test()
+//    @Test()
     public void ourTest(){
         page.checkAuthFields();
     }
