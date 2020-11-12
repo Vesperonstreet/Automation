@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.lang.annotation.Target;
 
-public class LoginPage { //extends BasePage
+public class LoginPage_OLD { //extends BasePage
 
     @FindBy(id = "login_field")
     WebElement loginField;
@@ -18,7 +18,7 @@ public class LoginPage { //extends BasePage
     @FindBy(name = "commit")
     WebElement singInButton;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage_OLD(WebDriver driver) {
    //     super(driver);
    //     PageFactory.initElements(this.driver, this);
     }
