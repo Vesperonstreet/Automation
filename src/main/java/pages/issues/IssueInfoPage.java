@@ -7,7 +7,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 import static helpers.ColorPrinter.printColorMessage;
-import static helpers.Level.INFO;
 
 public class IssueInfoPage extends BasePage {
 
@@ -19,14 +18,14 @@ public class IssueInfoPage extends BasePage {
 
     private final By title = By.xpath("//span[@class = 'js-issue-title']");
     private final By statusImage = By.xpath("//div[contains(@class, 'flex-md-self-center')]/span");
-    private final By discription = By.xpath("//td[contains(@class, 'js-comment-body')]");
+    private final By description = By.xpath("//td[contains(@class, 'js-comment-body')]");
 
     public IssueInfoPage validateCreatedIssue(String titletext, String body){
         printColorMessage("Проверка созданой задачи", log, Level.INFO);
         try {
             Assert.assertEquals(titletext, driver.findElement(title).getText());
             Assert.assertTrue(driver.findElement(statusImage).isDisplayed());
-            Assert.assertEquals(body, driver.findElement(discription).getText());
+            Assert.assertEquals(body, driver.findElement(description).getText());
         } catch (NoSuchElementException n){
             Assert.fail("Задача создана не корректна" + n.getMessage());
         }

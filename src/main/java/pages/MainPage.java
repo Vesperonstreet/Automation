@@ -6,15 +6,18 @@ import org.openqa.selenium.WebDriver;
 
 import static helpers.ColorPrinter.printMessageInYellow;
 
-public class MainPage extends BasePage{
+public class MainPage extends MainMenu{
 
     private final static String Title = "Основная авторизация";
 
     public MainPage(WebDriver driver) {
-        super(driver, Title);
+        super(driver);
     }
 
     private By successTitle = By.xpath("//h2[@class = 'shelf-title']");
+
+    private final By userButton = By.xpath("//summary[@class='Header-link' and @aria-label='View profile and more']");
+    private final By logOutButton = By.xpath("//button[contains(text(), 'Sign out')]");
 
     public void validateLogin(){
         printMessageInYellow("Проверка успешной авторизации", log);
@@ -29,4 +32,5 @@ public class MainPage extends BasePage{
         driver.get("https://github.com/Vesperonstreet/Automation");
         return new ProjectPage(driver);
     }
+
 }

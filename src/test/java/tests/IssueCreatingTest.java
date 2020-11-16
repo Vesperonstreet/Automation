@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPage;
@@ -17,7 +18,7 @@ public class IssueCreatingTest extends BaseTest{
                 .openProjectIssues();
     }
 
-    @Test
+    @After
     public void checkIssueCreation(){
         page.pressToCreateNewIssue()
                 .createNewIssue("Automated title", "Test Body")
