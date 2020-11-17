@@ -25,21 +25,30 @@ public class IssuesCreationPage extends BasePage {
     private final By IssueLabelsButton = By.id("labels-select-menu");
     private final By IssueLabels = By.xpath("//div[@class='css-truncate']");
 
+    private final By MainPage = By.xpath("//main[@id='js-repo-pjax-container']");
+
     public IssueInfoPage createNewIssue(String title, String body){
         printColorMessage("Создаем новую задачу", log, Level.INFO);
         Assert.assertTrue(driver.findElement(IssueTitleField).isDisplayed());
         driver.findElement(IssueTitleField).sendKeys(title);
         Assert.assertTrue(driver.findElement(IssueBodyField).isDisplayed());
         driver.findElement(IssueBodyField).sendKeys(body);
-        Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
-        driver.findElement(IssueCreationButton).click();
-        printMessageInGreen("Задача создана", log);
 
+        Assert.assertTrue(driver.findElement(IssueLabelsButton).isDisplayed());
+        driver.findElement(IssueLabelsButton).click();
 
         List<WebElement> labels = driver.findElements(IssueLabels);
         for (WebElement label : labels){
             Assert.assertTrue(label.isDisplayed());
         }
+        driver.findElement(IssueLabels).isSelected();
+
+        Assert.assertTrue(driver.findElement(MainPage).isDisplayed());
+        driver.findElement(MainPage).click();
+
+        Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
+        driver.findElement(IssueCreationButton).click();
+        printMessageInGreen("Задача создана", log);
 
         return new IssueInfoPage(driver);
     }
