@@ -6,7 +6,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 
 import static helpers.ColorPrinter.*;
-import static helpers.Level.INFO;
 
 public class LoginPage extends BasePage {
 
@@ -65,9 +64,9 @@ public class LoginPage extends BasePage {
 
     public LoginPage checkAuthFields(){
         printColorMessage("Валидация", log, Level.INFO);
-        Assert.assertTrue("Поле Логин видимо", this.driver.findElement(loginField).isDisplayed());
-        Assert.assertTrue("Поле Пароль видимо", this.driver.findElement(passwordField).isDisplayed());
-        Assert.assertTrue("Кнопка Войти видима", this.driver.findElement(signInButton).isDisplayed());
+        Assert.assertTrue("Поле Логин видимо", driver.findElement(loginField).isDisplayed());
+        Assert.assertTrue("Поле Пароль видимо", driver.findElement(passwordField).isDisplayed());
+        Assert.assertTrue("Кнопка Войти видима", driver.findElement(signInButton).isDisplayed());
         printColorMessage("Поля видны", log, Level.INFO);
         return this;
     }
