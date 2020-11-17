@@ -5,8 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 
-import static helpers.ColorPrinter.printColorMessage;
-import static helpers.ColorPrinter.printMessageInYellow;
+import static helpers.ColorPrinter.*;
 import static helpers.Level.INFO;
 
 public class LoginPage extends BasePage {
@@ -35,11 +34,14 @@ public class LoginPage extends BasePage {
     }
 
     public MainPage login(String login, String password){
-        printColorMessage("Авторизация в приложение", log, Level.INFO);
+        log.info("Авторизация в приложение");
         driver.findElement(loginField).sendKeys(login);
+        printMessageInYellow("login введен", log);
         driver.findElement(passwordField).sendKeys(password);
+        printMessageInYellow("password введен", log);
         driver.findElement(signInButton).click();
-        printColorMessage("Авторизация успешна", log, Level.INFO);
+        printMessageInYellow("Кнопка Sign in нажата", log);
+        printMessageInGreen("Авторизация успешна", log);
         return new MainPage(driver);
     }
 

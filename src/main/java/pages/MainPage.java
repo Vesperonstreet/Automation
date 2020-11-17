@@ -23,8 +23,8 @@ public class MainPage extends MainMenu{
         printMessageInYellow("Проверка успешной авторизации", log);
         Assert.assertTrue(driver.findElement(successTitle).isDisplayed());
         Assert.assertEquals("Сообщение измененно",
-                "Learn Git and GitHub without any code!",
-                driver.findElement(successTitle).getText());
+                            "Learn Git and GitHub without any code!",
+                             driver.findElement(successTitle).getText());
         printMessageInYellow("Успешно!", log);
     }
 

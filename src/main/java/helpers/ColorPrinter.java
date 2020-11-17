@@ -14,6 +14,14 @@ public class ColorPrinter {
         logger.info(BLUE_BACKGROUND + YELLOW + message + RESET);
     }
 
+    public static void printMessageInGreen(String message){
+        System.out.println(BLUE_BACKGROUND + GREEN + message + RESET);
+    }
+
+    public static void printMessageInGreen(String message, Logger logger){
+        logger.info(BLUE_BACKGROUND + GREEN + message + RESET);
+    }
+
     public static void printColorMessage(String message, Logger logger, Level level){
         switch (level){
             case INFO:

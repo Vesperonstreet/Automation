@@ -17,7 +17,7 @@ public class LogoutTest extends BaseTest{
 
     @Test
     public void exit(){
-        this.page.logout();
+        page.logout()
+            .validateLogout();
     }
-
 }

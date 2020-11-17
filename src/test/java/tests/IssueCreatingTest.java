@@ -18,7 +18,7 @@ public class IssueCreatingTest extends BaseTest{
                 .openProjectIssues();
     }
 
-    @After
+    @Test
     public void checkIssueCreation(){
         page.pressToCreateNewIssue()
                 .createNewIssue("Automated title", "Test Body")

@@ -33,5 +33,4 @@ public class IssueInfoPage extends BasePage {
         printColorMessage("Проверка выполнена. Задача создана.", log, Level.INFO);
         return this;
     }
-
 }
