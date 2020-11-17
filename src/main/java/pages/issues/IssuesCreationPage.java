@@ -31,11 +31,13 @@ public class IssuesCreationPage extends BasePage {
         printColorMessage("Создаем новую задачу", log, Level.INFO);
         Assert.assertTrue(driver.findElement(IssueTitleField).isDisplayed());
         driver.findElement(IssueTitleField).sendKeys(title);
+        printMessageInYellow("Поле title заполненно", log);
         Assert.assertTrue(driver.findElement(IssueBodyField).isDisplayed());
         driver.findElement(IssueBodyField).sendKeys(body);
-
+        printMessageInYellow("Поле body заполненно", log);
         Assert.assertTrue(driver.findElement(IssueLabelsButton).isDisplayed());
         driver.findElement(IssueLabelsButton).click();
+        printMessageInYellow("Кнопка IssueLabelsButton нажата", log);
 
         List<WebElement> labels = driver.findElements(IssueLabels);
         for (WebElement label : labels){
@@ -45,7 +47,7 @@ public class IssuesCreationPage extends BasePage {
 
         Assert.assertTrue(driver.findElement(MainPage).isDisplayed());
         driver.findElement(MainPage).click();
-
+        printMessageInYellow("Выполнен клик на экране, для закрытия Labels", log);
         Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
         driver.findElement(IssueCreationButton).click();
         printMessageInGreen("Задача создана", log);
