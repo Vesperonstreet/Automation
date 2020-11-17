@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 import static helpers.ColorPrinter.printColorMessage;
+import static helpers.ColorPrinter.printMessageInGreen;
 
 public class IssueInfoPage extends BasePage {
 
@@ -29,8 +30,7 @@ public class IssueInfoPage extends BasePage {
         } catch (NoSuchElementException n){
             Assert.fail("Задача создана не корректна" + n.getMessage());
         }
-
-        printColorMessage("Проверка выполнена. Задача создана.", log, Level.INFO);
+        printMessageInGreen("Проверка выполнена. Задача создана.", log);
         return this;
     }
 }
