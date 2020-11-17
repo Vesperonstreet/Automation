@@ -43,7 +43,8 @@ public class IssuesCreationPage extends BasePage {
         for (WebElement label : labels){
             Assert.assertTrue(label.isDisplayed());
         }
-        driver.findElement(IssueLabels).isSelected();
+
+        driver.findElements(IssueLabels).stream().findFirst().orElse(labels.get(2)).click();
 
         Assert.assertTrue(driver.findElement(MainPage).isDisplayed());
         driver.findElement(MainPage).click();

@@ -183,7 +183,7 @@ public class Application {
         for (int element : intList) {
             System.out.println("Some value of calc: " + calc.sum(element, 4));
 */
-/*
+/* v
         Calc calc = new Calc();
 */
 /*
