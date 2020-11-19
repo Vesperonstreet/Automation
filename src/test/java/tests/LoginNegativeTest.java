@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 import static helpers.ColorPrinter.printMessageInYellow;
+import static helpers.FileHelper.readAuthDataFromFile;
 
 @RunWith(Parameterized.class)
 public class LoginNegativeTest extends BaseTest{
@@ -27,7 +28,7 @@ public class LoginNegativeTest extends BaseTest{
         this.login = login;
         this.password = password;
     }
-
+/*
     @Parameterized.Parameters
     public static Collection<String[]> data(){
         Collection<String[]> result = new ArrayList<>();
@@ -37,7 +38,13 @@ public class LoginNegativeTest extends BaseTest{
         result.add(new String[]{"someLogin", "somePassword"});
         return result;
     }
-
+    //todo можно заменить на часть кода внизу
+*/
+    @Parameterized.Parameters
+    public static Collection<String[]> data(){
+        return readAuthDataFromFile(
+           "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\authData.txt");
+}
 
     @Before
     public void setPage(){

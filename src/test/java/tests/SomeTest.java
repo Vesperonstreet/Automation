@@ -11,7 +11,7 @@ public class SomeTest {
         List<String> data = readLinesFromFile(
                 "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\main\\resources\\log4j2.properties");
         for(String line : data){
-            System.out.println(line);
+                System.out.println(line.replaceAll("\n", ""));
         }
     }
 }

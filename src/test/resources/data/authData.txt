@@ -1,4 +1,4 @@
 login, password
 tester, tester
 testGit, testGit
-someTest, 123qweqwe
+someTest, somePassword

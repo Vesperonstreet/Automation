@@ -2,14 +2,15 @@ package tests;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPage;
 import pages.issues.IssuesPage;
-
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import static helpers.FileHelper.readDataFromFile;
 
+@RunWith(Parameterized.class)
 public class IssueCreatingTest extends BaseTest{
 
     private IssuesPage page;
@@ -23,13 +24,13 @@ public class IssueCreatingTest extends BaseTest{
         this.body = body;
         this.labels = labels;
     }
-/*
+
     @Parameterized.Parameters
-    public static Collection<Object> data(){
-        "C:\Users\Admin\IdeaProjects\G46Automation\src\main\resources\data\isuues.txt"
-        return
+    public static Collection<Object[]> data(){
+        return readDataFromFile(
+                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\isuues.txt");
     }
-*/
+
     @Before
     public void signIn(){
         page = new LoginPage(driver)
@@ -47,6 +48,13 @@ public class IssueCreatingTest extends BaseTest{
                 .createNewIssue("Automated title", "Test Body", labels)
                 .validateCreatedIssue("Automated title", "Test Body", labels);
     }
+*/
+    // todo код без выполнения Parameters выше
 
- */
+    @Test
+    public void checkIssueCreation(){
+        page.pressToCreateNewIssue()
+                .createNewIssue(this.title, this.body, this.labels)
+                .validateCreatedIssue(this.title, this.body, this.labels);
+    }
 }

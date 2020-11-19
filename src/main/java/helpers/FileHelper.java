@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -34,20 +33,19 @@ public class FileHelper {
         return result;
     }
 
-    public static Collection<String[]> readDataFromFile(String path){
-        Collection<String[]> result = new ArrayList<>();
+    public static Collection<Object[]> readDataFromFile(String path){
+        Collection<Object[]> result = new ArrayList<>();
         List<String> lines = readLinesFromFile(path);
         for (String line : lines){
             String[] testData = line.split(", ");
             List<String> labels = new ArrayList<>();
-            for (String label: testData){
-                if (testData[0].equals(label) || testData[1].equals(label)){
+            for (String label : testData){
+                if (testData[0].equals(label) || !testData[1].equals(label)){
                     labels.add(label);
                 }
             }
-    //        result.add(new Object[]{testData[0], testData[1],labels});
+            result.add(new Object[]{testData[0], testData[1], labels});
         }
         return result;
     }
-
 }

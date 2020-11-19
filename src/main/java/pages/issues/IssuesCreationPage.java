@@ -21,7 +21,8 @@ public class IssuesCreationPage extends BasePage {
     private final By IssueTitleField = By.id("issue_title");
     private final By IssueBodyField = By.id("issue_body");
     private final By IssueCreationButton = By.xpath("//button[@class = 'btn btn-primary']");
-    private final By IssueLabels = By.xpath("//div[@class = 'css-truncate']");
+    private final By labelsShowButton = By.id("labels-select-menu");
+    private final By IssueLabels = By.xpath("//span[@class = 'name']");
 
     public IssueInfoPage createNewIssue(String title, String body, List<String> testLabels){
         printColorMessage("Создаем новую задачу", log, Level.INFO);
@@ -31,10 +32,9 @@ public class IssuesCreationPage extends BasePage {
         Assert.assertTrue(driver.findElement(IssueBodyField).isDisplayed());
         driver.findElement(IssueBodyField).sendKeys(body);
         printMessageInYellow("Поле body заполненно", log);
-        Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
-        driver.findElement(IssueCreationButton).click();
-        printMessageInYellow("Кнопка IssueCreationButton нажата", log);
-        printMessageInGreen("Задача создана", log);
+        Assert.assertTrue(driver.findElement(labelsShowButton).isDisplayed());
+        driver.findElement(labelsShowButton).sendKeys(body);
+        printMessageInYellow("Кнопка Labels нажата", log);
 
         List<WebElement> labels = driver.findElements(IssueLabels);
         for (WebElement label : labels){
@@ -44,6 +44,11 @@ public class IssuesCreationPage extends BasePage {
             }
         }
 
+        driver.findElement(labelsShowButton).sendKeys(body);
+        Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
+        driver.findElement(IssueCreationButton).click();
+        printMessageInYellow("Кнопка IssueCreationButton нажата", log);
+        printMessageInGreen("Задача создана", log);
         return new IssueInfoPage(driver);
     }
 }
