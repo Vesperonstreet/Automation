@@ -1,24 +1,36 @@
 package tests;
 
-import org.junit.Before;
-import pages.LoginPage;
+import org.junit.Test;
+import java.util.List;
+import static helpers.FileHelper.readLinesFromFile;
 
-public class SomeTest extends BaseTest {
+public class SomeTest {
 
-    private LoginPage page;
-
-    @Before()
-    public void setPage(){
-        page = new LoginPage(driver);
-    }
-
-
-//    @Test()
-    public void ourTest(){
-        page.checkAuthFields();
+    @Test
+    public void checkFile(){
+        List<String> data = readLinesFromFile(
+                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\main\\resources\\log4j2.properties");
+        for(String line : data){
+            System.out.println(line);
+        }
     }
 }
+    /*    ----------------------------------------------
+             case for testng
 
+   // @DataProvider
+    public Object[][] testData(){
+        return new Object[][]{ {"login", "password"}, {"admin", "admin"} };
+    }
+
+   // @Test(dataProvider = "testData")
+    public void ourTest(String login, String password){
+        System.out.println("Login: " + login);
+        System.out.println("Password: " + password);
+    }
+}
+         ------------------------------------------------
+*/
  /* ----------------------------------------------------------------------------------------------
 
     private By loginField = By.id("login_field");

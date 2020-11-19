@@ -21,13 +21,9 @@ public class IssuesCreationPage extends BasePage {
     private final By IssueTitleField = By.id("issue_title");
     private final By IssueBodyField = By.id("issue_body");
     private final By IssueCreationButton = By.xpath("//button[@class = 'btn btn-primary']");
+    private final By IssueLabels = By.xpath("//div[@class = 'css-truncate']");
 
-    private final By IssueLabelsButton = By.id("labels-select-menu");
-    private final By IssueLabels = By.xpath("//div[@class='css-truncate']");
-
-    private final By MainPage = By.xpath("//main[@id='js-repo-pjax-container']");
-
-    public IssueInfoPage createNewIssue(String title, String body){
+    public IssueInfoPage createNewIssue(String title, String body, List<String> testLabels){
         printColorMessage("Создаем новую задачу", log, Level.INFO);
         Assert.assertTrue(driver.findElement(IssueTitleField).isDisplayed());
         driver.findElement(IssueTitleField).sendKeys(title);
@@ -35,23 +31,18 @@ public class IssuesCreationPage extends BasePage {
         Assert.assertTrue(driver.findElement(IssueBodyField).isDisplayed());
         driver.findElement(IssueBodyField).sendKeys(body);
         printMessageInYellow("Поле body заполненно", log);
-        Assert.assertTrue(driver.findElement(IssueLabelsButton).isDisplayed());
-        driver.findElement(IssueLabelsButton).click();
-        printMessageInYellow("Кнопка IssueLabelsButton нажата", log);
+        Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
+        driver.findElement(IssueCreationButton).click();
+        printMessageInYellow("Кнопка IssueCreationButton нажата", log);
+        printMessageInGreen("Задача создана", log);
 
         List<WebElement> labels = driver.findElements(IssueLabels);
         for (WebElement label : labels){
-            Assert.assertTrue(label.isDisplayed());
+            if(testLabels.contains(label.getText())) {
+                Assert.assertTrue(label.isDisplayed());
+                label.click();
+            }
         }
-
-        driver.findElements(IssueLabels).stream().findFirst().orElse(labels.get(2)).click();
-
-        Assert.assertTrue(driver.findElement(MainPage).isDisplayed());
-        driver.findElement(MainPage).click();
-        printMessageInYellow("Выполнен клик на экране, для закрытия Labels", log);
-        Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
-        driver.findElement(IssueCreationButton).click();
-        printMessageInGreen("Задача создана", log);
 
         return new IssueInfoPage(driver);
     }
