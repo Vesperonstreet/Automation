@@ -28,7 +28,7 @@ public class IssueCreatingTest extends BaseTest{
     @Parameterized.Parameters
     public static Collection<Object[]> data(){
         return readDataFromFile(
-                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\isuues.txt");
+                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\issues.txt");
     }
 
     @Before

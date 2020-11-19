@@ -15,7 +15,7 @@ public class BaseTest {
         System.setProperty(
                 "webdriver.chrome.driver",
                 System.getProperty("user.dir") +
-                        "/src/main/resources/chrome_drivers_V86/chromedriver.exe");
+                        "/src/main/resources/chrome_drivers_V87/chromedriver.exe");
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
