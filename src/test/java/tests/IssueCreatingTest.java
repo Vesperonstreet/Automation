@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,12 +50,18 @@ public class IssueCreatingTest extends BaseTest{
                 .validateCreatedIssue("Automated title", "Test Body", labels);
     }
 */
-    // todo код без выполнения Parameters выше
+    // todo код без выполнения @Parameters выше
 
     @Test
     public void checkIssueCreation(){
         page.pressToCreateNewIssue()
                 .createNewIssue(this.title, this.body, this.labels)
                 .validateCreatedIssue(this.title, this.body, this.labels);
+    }
+
+    @After
+    public void tearDown(){
+        page.logout()
+            .validateLogout();
     }
 }

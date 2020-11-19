@@ -5,12 +5,15 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.BaseAuthorizedPage;
 import pages.BasePage;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static helpers.ColorPrinter.*;
 
-public class IssuesCreationPage extends BasePage {
+public class IssuesCreationPage extends BaseAuthorizedPage {
 
     private static final String TITLE = "Страница со списком задач проекта";
 
@@ -24,7 +27,7 @@ public class IssuesCreationPage extends BasePage {
     private final By labelsShowButton = By.id("labels-select-menu");
     private final By IssueLabels = By.xpath("//span[@class = 'name']");
 
-    public IssueInfoPage createNewIssue(String title, String body, List<String> testLabels){
+    public IssueInfoPage createNewIssue(String title, String body, List<String> testLabels) {
         printColorMessage("Создаем новую задачу", log, Level.INFO);
         Assert.assertTrue(driver.findElement(IssueTitleField).isDisplayed());
         driver.findElement(IssueTitleField).sendKeys(title);
@@ -35,7 +38,23 @@ public class IssuesCreationPage extends BasePage {
         Assert.assertTrue(driver.findElement(labelsShowButton).isDisplayed());
         driver.findElement(labelsShowButton).sendKeys(body);
         printMessageInYellow("Кнопка Labels нажата", log);
+/*
+// ===== Лямбда-выражение Вариант 1 =====
+        driver.findElements(IssueLabels).forEach(label -> {
+            if (testLabels.contains(label.getText())) {
+                Assert.assertTrue(label.isDisplayed());
+                label.click();
+            }
+        });
+*/
+// ===== Лямбда-выражение Вариант 2 =====
+        driver.findElements(IssueLabels)
+                .stream()
+                .filter(label -> testLabels.contains(label.getText()))
+                .collect(Collectors.toList());
 
+// todo Код выше это конструкция Лямбда-выражение, можно заменить на код ниже
+/*
         List<WebElement> labels = driver.findElements(IssueLabels);
         for (WebElement label : labels){
             if(testLabels.contains(label.getText())) {
@@ -43,7 +62,7 @@ public class IssuesCreationPage extends BasePage {
                 label.click();
             }
         }
-
+*/
         driver.findElement(labelsShowButton).sendKeys(body);
         Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
         driver.findElement(IssueCreationButton).click();

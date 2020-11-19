@@ -3,9 +3,19 @@ package tests;
 import org.junit.Test;
 import java.util.List;
 import static helpers.FileHelper.readLinesFromFile;
+import static helpers.FileHelper.writeTextToFile;
 
 public class SomeTest {
 
+    @Test
+    public void checkFile(){
+       writeTextToFile(
+               "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\out.txt",
+               "First line\nSecond line\nThird line");
+    }
+}
+
+/*
     @Test
     public void checkFile(){
         List<String> data = readLinesFromFile(
@@ -15,6 +25,8 @@ public class SomeTest {
         }
     }
 }
+
+ */
     /*    ----------------------------------------------
              case for testng
 

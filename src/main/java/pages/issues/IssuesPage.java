@@ -4,12 +4,13 @@ import helpers.Level;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pages.BaseAuthorizedPage;
 import pages.BasePage;
 
 import static helpers.ColorPrinter.printColorMessage;
 import static helpers.ColorPrinter.printMessageInYellow;
 
-public class IssuesPage extends BasePage {
+public class IssuesPage extends BaseAuthorizedPage {
 
     private static final String TITLE = "Страница создания задач";
 

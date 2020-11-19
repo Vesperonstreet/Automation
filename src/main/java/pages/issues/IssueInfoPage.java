@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.BaseAuthorizedPage;
 import pages.BasePage;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 import static helpers.ColorPrinter.printColorMessage;
 import static helpers.ColorPrinter.printMessageInGreen;
 
-public class IssueInfoPage extends BasePage {
+public class IssueInfoPage extends BaseAuthorizedPage {
 
     private static final String TITLE = "Страница информации о задаче проекта";
 
@@ -35,6 +36,13 @@ public class IssueInfoPage extends BasePage {
             log.info("Проверка тела задачи");
             Assert.assertEquals(body, driver.findElement(description).getText());
 
+// ===== Лямбда-выражение =====
+            driver.findElements(labels).forEach(label -> {
+                        Assert.assertTrue(testLabels.contains(label.getText()));
+                        testLabels.remove(label.getText());
+                    });
+
+// todo Код выше это конструкция Лямбда-выражение, можно заменить на код ниже
             List<WebElement> labelElements = driver.findElements(labels);
             for (WebElement label : labelElements){
                 log.info("Проверка метки: " + label.getText());

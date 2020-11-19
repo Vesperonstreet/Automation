@@ -24,7 +24,8 @@ public class HomePage extends BasePage{
     public HomePage validateLogout(){
         printColorMessage("Проверка успешного выхода из системы", log, Level.INFO);
         try {
-            Assert.assertEquals("Built for developers", driver.findElement(title).getText());
+            Assert.assertEquals("Built for developers",
+                                driver.findElement(title).getText());
             Assert.assertEquals("GitHub is a development platform inspired by the way you work. " +
                                 "From open source to business, you can host and review code, manage projects, " +
                                 "and build software alongside 50 million developers.",

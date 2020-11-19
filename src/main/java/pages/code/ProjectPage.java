@@ -1,12 +1,13 @@
-package pages;
+package pages.code;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import pages.BaseAuthorizedPage;
 import pages.issues.IssuesPage;
 
-public class ProjectPage extends BasePage{
+public class ProjectPage extends BaseAuthorizedPage {
 
     private final static String TITLE = "Страница проекта";
 

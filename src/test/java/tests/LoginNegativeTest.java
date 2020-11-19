@@ -38,7 +38,7 @@ public class LoginNegativeTest extends BaseTest{
         result.add(new String[]{"someLogin", "somePassword"});
         return result;
     }
-    //todo можно заменить на часть кода внизу
+    //todo код выше можно заменить на часть кода ниже
 */
     @Parameterized.Parameters
     public static Collection<String[]> data(){
