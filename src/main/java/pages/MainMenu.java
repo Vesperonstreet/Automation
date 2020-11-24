@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import static helpers.ColorPrinter.printColorMessage;
 import static helpers.ColorPrinter.printMessageInYellow;
 
-public class MainMenu extends BasePage{
+public class MainMenu extends BaseAuthorizedPage{
 
     private final static String TITLE = "Основное меню";
 

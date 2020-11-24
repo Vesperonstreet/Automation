@@ -1,9 +1,12 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPage;
 import pages.MainPage;
+
+import static helpers.ColorPrinter.printMessageInYellow;
 
 public class LogoutTest extends BaseTest{
 
@@ -19,5 +22,11 @@ public class LogoutTest extends BaseTest{
     public void exit(){
         page.logout()
             .validateLogout();
+    }
+
+    @After
+    public void tearDown(){
+        driver.close();
+        printMessageInYellow("=== And of test ===");
     }
 }

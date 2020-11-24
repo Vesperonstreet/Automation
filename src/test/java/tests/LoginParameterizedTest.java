@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -7,8 +8,10 @@ import org.junit.runners.Parameterized;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static helpers.ColorPrinter.printMessageInYellow;
+
 @RunWith(Parameterized.class)
-public class LoginParameterizedTest{
+public class LoginParameterizedTest extends BaseTest{
 
     private String login;
     private String password;
@@ -30,5 +33,11 @@ public class LoginParameterizedTest{
     public void checkParams(){
         System.out.println("Login: " + this.login);
         System.out.println("Password: " + this.password);
+    }
+
+    @After
+    public void tearDown(){
+        driver.close();
+        printMessageInYellow("=== And of test ===");
     }
 }

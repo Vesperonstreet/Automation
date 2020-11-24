@@ -27,15 +27,17 @@ public class LoginNavigationTabsCheck extends BaseTest{
                             System.getProperty("password"))
 //                    .validateLogin();
                     .openOurProject()
-                    .validateTabs();
+                    .validateTabs()
+                    .logout()
+                    .validateLogout();
         } catch (NoSuchElementException e){
             Assert.fail(e.getMessage());
         }
     }
 
-
     @After
     public void tearDown(){
+        driver.close();
         printMessageInYellow("=== And of test ===");
     }
 }
