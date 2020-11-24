@@ -16,7 +16,6 @@ public class BasePage {
         this.driver = driver;
         this.title = title;
         this.log = LogManager.getLogger(this.title);
-        printColorMessage("Создан экземпляр страницы: " + title + ", class: "
-                + this.getClass().getName(), log, Level.DEBUG);
+        printColorMessage("Class: " + this.getClass().getName(), log, Level.DEBUG);
     }
 }
