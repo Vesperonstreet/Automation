@@ -18,7 +18,7 @@ public class SomeTest {
                         "Лист1").forEach(System.out::println);
     }
 }
-/*
+/*    Для проверки одного столбца
     @Test
     public void checkFile() {
         readColumnFromExcelFile(
