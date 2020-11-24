@@ -15,7 +15,8 @@ public class MainPage extends MainMenu{
         super(driver);
     }
 
-    private By successTitle = By.xpath("//h2[@class = 'shelf-title']");
+    private By successTitle = By.xpath(
+            "//h2[contains(text(), 'Discover interesting projects and people to populate your personal news feed.')]");
 
     private final By userButton = By.xpath("//summary[@class='Header-link' and @aria-label='View profile and more']");
     private final By logOutButton = By.xpath("//button[contains(text(), 'Sign out')]");

@@ -4,11 +4,7 @@ import helpers.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-
 import static helpers.ColorPrinter.printColorMessage;
-import static helpers.ColorPrinter.printMessageInYellow;
-
-import static helpers.Level.DEBUG;
 
 public class BasePage {
 

@@ -38,7 +38,7 @@ public class IssuesCreationPage extends BaseAuthorizedPage {
         Assert.assertTrue(driver.findElement(labelsShowButton).isDisplayed());
         driver.findElement(labelsShowButton).sendKeys(body);
         printMessageInYellow("Кнопка Labels нажата", log);
-/*
+
 // ===== Лямбда-выражение Вариант 1 =====
         driver.findElements(IssueLabels).forEach(label -> {
             if (testLabels.contains(label.getText())) {
@@ -46,13 +46,13 @@ public class IssuesCreationPage extends BaseAuthorizedPage {
                 label.click();
             }
         });
-*/
+/*
 // ===== Лямбда-выражение Вариант 2 =====
         driver.findElements(IssueLabels)
                 .stream()
                 .filter(label -> testLabels.contains(label.getText()))
                 .collect(Collectors.toList());
-
+*/
 // todo Код выше это конструкция Лямбда-выражение, можно заменить на код ниже
 /*
         List<WebElement> labels = driver.findElements(IssueLabels);
