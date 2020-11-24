@@ -4,8 +4,10 @@ import helpers.Level;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static helpers.ColorPrinter.*;
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 public class LoginPage extends BasePage {
 
@@ -34,6 +36,11 @@ public class LoginPage extends BasePage {
 
     public MainPage login(String login, String password){
         log.info("Авторизация в приложение");
+
+        webDriverWait_10.until(elementToBeClickable(loginField)); //wait until element will be clickable
+/*       Второй варинат использования ниже
+        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(loginField)); //
+*/
         driver.findElement(loginField).sendKeys(login);
         printMessageInYellow("login введен", log);
         driver.findElement(passwordField).sendKeys(password);

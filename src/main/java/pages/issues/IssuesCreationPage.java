@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BaseAuthorizedPage;
 import pages.BasePage;
 
@@ -36,7 +37,8 @@ public class IssuesCreationPage extends BaseAuthorizedPage {
         driver.findElement(IssueBodyField).sendKeys(body);
         printMessageInYellow("Поле body заполненно", log);
         Assert.assertTrue(driver.findElement(labelsShowButton).isDisplayed());
-        driver.findElement(labelsShowButton).sendKeys(body);
+        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(labelsShowButton));
+        driver.findElement(labelsShowButton).click();
         printMessageInYellow("Кнопка Labels нажата", log);
 
 // ===== Лямбда-выражение Вариант 1 =====
@@ -63,7 +65,7 @@ public class IssuesCreationPage extends BaseAuthorizedPage {
             }
         }
 */
-        driver.findElement(labelsShowButton).sendKeys(body);
+        driver.findElement(labelsShowButton).click();
         Assert.assertTrue(driver.findElement(IssueCreationButton).isDisplayed());
         driver.findElement(IssueCreationButton).click();
         printMessageInYellow("Кнопка IssueCreationButton нажата", log);

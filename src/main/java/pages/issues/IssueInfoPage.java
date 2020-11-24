@@ -53,7 +53,6 @@ public class IssueInfoPage extends BaseAuthorizedPage {
         } catch (NoSuchElementException n){
             Assert.fail("Задача создана не корректна" + n.getMessage());
         }
-
         printMessageInGreen("Проверка выполнена. Задача создана.", log);
         return this;
     }

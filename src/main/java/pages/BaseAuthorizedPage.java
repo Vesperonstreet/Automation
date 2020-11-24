@@ -4,6 +4,7 @@ import helpers.Level;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.code.ProjectPage;
 
 import static helpers.ColorPrinter.printColorMessage;
@@ -25,14 +26,18 @@ public abstract class BaseAuthorizedPage extends BasePage{
     public ProjectPage searchProject(String projectName){
         driver.findElement(searchField).click();
         driver.findElement(searchField).sendKeys(projectName);
-        try {
+
+        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(searchResults));
+/*        try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
             log.error(e);
-        }
+        }                                    */
+
         driver.findElements(searchResults).get(1).click();
         return new ProjectPage(driver);
     }
+
     public HomePage logout(){
         log.info("Выход из приложения");
         printColorMessage("Проверка наличия кнопки View profile", log, Level.INFO);
@@ -41,6 +46,7 @@ public abstract class BaseAuthorizedPage extends BasePage{
         printMessageInYellow("Кнопка View profile нажата", log);
         printColorMessage("Проверка наличия кнопки Sign out", log, Level.INFO);
         Assert.assertTrue(driver.findElement(logOutButton).isDisplayed());
+        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(logOutButton));
         driver.findElement(logOutButton).click();
         printMessageInYellow("Кнопка Sign out нажата", log);
         return new HomePage(driver);
