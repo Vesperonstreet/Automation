@@ -33,7 +33,6 @@ public class LoginPositiveTest extends BaseTest{
 
     @After
     public void tearDown(){
-        driver.close();
         printMessageInYellow("=== And of test ===");
     }
 }

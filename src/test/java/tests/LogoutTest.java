@@ -26,7 +26,6 @@ public class LogoutTest extends BaseTest{
 
     @After
     public void tearDown(){
-        driver.close();
         printMessageInYellow("=== And of test ===");
     }
 }

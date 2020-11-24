@@ -63,6 +63,5 @@ public class IssueCreatingTest extends BaseTest{
     public void tearDown(){
         page.logout()
             .validateLogout();
-        driver.close();
     }
 }
