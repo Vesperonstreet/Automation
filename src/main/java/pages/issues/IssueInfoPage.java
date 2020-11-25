@@ -43,13 +43,14 @@ public class IssueInfoPage extends BaseAuthorizedPage {
                     });
 
 // todo Код выше это конструкция Лямбда-выражение, можно заменить на код ниже
+/*
             List<WebElement> labelElements = driver.findElements(labels);
             for (WebElement label : labelElements){
                 log.info("Проверка метки: " + label.getText());
                 Assert.assertTrue(testLabels.contains(label.getText()));
                 testLabels.remove(label.getText());
             }
-    //        Assert.assertTrue(testLabels.isEmpty());
+*/
         } catch (NoSuchElementException n){
             Assert.fail("Задача создана не корректна" + n.getMessage());
         }

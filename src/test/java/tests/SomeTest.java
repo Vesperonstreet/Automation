@@ -11,10 +11,10 @@ import static helpers.FileHelper.writeTextToFile;
 public class SomeTest {
 
     @Test
-    public void checkFile() {
+    public void checkFile(){
         readExcelFile(
                 System.getProperty("user.dir") +
-                        "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\TestExcelFile2.xlsx",
+                        "C:/Users/Admin/IdeaProjects/G46Automation/src/test/resources/data/TestExcelFile2.xlsx",
                         "Лист1").forEach(System.out::println);
     }
 }
