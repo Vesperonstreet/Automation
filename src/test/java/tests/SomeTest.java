@@ -10,20 +10,20 @@ import static helpers.FileHelper.writeTextToFile;
 
 public class SomeTest {
 
+//    Для проверки массива из строк и столбцов 24.11.20
     @Test
     public void checkFile(){
-        readExcelFile(
-                System.getProperty("user.dir") +
-                        "C:/Users/Admin/IdeaProjects/G46Automation/src/test/resources/data/TestExcelFile2.xlsx",
+        readExcelFile("C:/Users/Admin/IdeaProjects/G46Automation/src/test/resources/data/TestExcelFile2.xlsx",
                         "Лист1").forEach(System.out::println);
     }
 }
-/*    Для проверки одного столбца
+
+/*
+//   Для проверки одного столбца 24.11.20
     @Test
     public void checkFile() {
-        readColumnFromExcelFile(
-                System.getProperty("user.dir") +
-                        "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\TestExcelFile.xlsx",
+        System.out.println(readColumnFromExcelFile(
+                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\TestExcelFile.xlsx",
                         0));
     }
 }
