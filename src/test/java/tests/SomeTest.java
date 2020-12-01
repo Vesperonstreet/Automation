@@ -1,25 +1,43 @@
 package tests;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.List;
 
-import static helpers.ExcelHelper.readColumnFromExcelFile;
-import static helpers.ExcelHelper.readExcelFile;
+import static helpers.ExcelHelper.*;
 import static helpers.FileHelper.readLinesFromFile;
 import static helpers.FileHelper.writeTextToFile;
 
 public class SomeTest {
 
-//    Для проверки массива из строк и столбцов 24.11.20
+    @Test
+    public void checkFile(){
+        List<String> testData = new ArrayList<>();
+        testData.add("One");
+        testData.add("Two");
+        testData.add("Three");
+        testData.add("Four");
+        testData.add("Five");
+
+        writeToExcelFile("C:/Users/Admin/IdeaProjects/G46Automation/src/test/resources/data/TestExcelFile3.xlsx",
+                testData,
+                "New Лист1",
+                1);
+    }
+}
+
+/*
+//    Для проверки массива из строк и столбцов 24.11.20    ================================
     @Test
     public void checkFile(){
         readExcelFile("C:/Users/Admin/IdeaProjects/G46Automation/src/test/resources/data/TestExcelFile2.xlsx",
                         "Лист1").forEach(System.out::println);
     }
 }
-
+*/
 /*
-//   Для проверки одного столбца 24.11.20
+//   Для проверки одного столбца 24.11.20     ================================
     @Test
     public void checkFile() {
         System.out.println(readColumnFromExcelFile(
@@ -29,7 +47,7 @@ public class SomeTest {
 }
 */
 
-/*
+/*    ==================================================================
     @Test
     public void checkFile(){
        writeTextToFile(
@@ -38,7 +56,7 @@ public class SomeTest {
     }
 }
 */
-/*
+/*   ====================================================================
     @Test
     public void checkFile(){
         List<String> data = readLinesFromFile(
