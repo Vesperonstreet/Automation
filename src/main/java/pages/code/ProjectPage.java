@@ -32,8 +32,7 @@ public class ProjectPage extends BaseAuthorizedPage {
 
     private final By repoLink = By.xpath("//a[@data-pjax=\"#js-repo-pjax-container\"]");
 
-    private final By tabsList = By.xpath("//li[(@class='d-flex') and not(contains(@class,'Counter '))]");
-    protected By tabs = By.xpath("//span[@data-content]");
+    protected By allTabs = By.xpath("//span[@data-content]");
 
 
     public ProjectPage(WebDriver driver) {
@@ -69,7 +68,7 @@ public class ProjectPage extends BaseAuthorizedPage {
     }
 
     public void colorfulTabsNames() {
-        List<WebElement> tabsList = driver.findElements(tabs);
+        List<WebElement> tabsList = driver.findElements(allTabs);
         printMessageInGreen("Список всех доступных табов: ");
         printTabsNamesWithDifferentColors(tabsList);
         log.info("Список табов напечатан");

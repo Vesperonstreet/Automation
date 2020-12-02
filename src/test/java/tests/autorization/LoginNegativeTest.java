@@ -62,7 +62,6 @@ public class LoginNegativeTest extends BaseTest {
     @Test
     public void negativeAuthTest(){    // todo Кейс для параметризации
             page.checkAuthFields()
-                    //todo Уведомить разработчиков. Кейс нестандатрного поведения системы
                     .LoginNegative(this.login, this.password)
                     .validateErrorMessage(invalidMessage);
     }

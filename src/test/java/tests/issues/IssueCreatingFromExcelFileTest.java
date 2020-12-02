@@ -11,11 +11,12 @@ import tests.BaseTest;
 
 import java.util.Collection;
 import java.util.List;
+
+import static helpers.ExcelHelper.readExcelFile;
 import static helpers.FileHelper.readDataFromFile;
 
-
 @RunWith(Parameterized.class)
-public class IssueCreatingTest extends BaseTest {
+public class IssueCreatingFromExcelFileTest extends BaseTest {
 
     private IssuesPage page;
 
@@ -23,48 +24,36 @@ public class IssueCreatingTest extends BaseTest {
     private String body;
     private List<String> labels;
 
-    public IssueCreatingTest(String title, String body, List<String> labels) {
+    public IssueCreatingFromExcelFileTest(String title, String body, List<String> labels) {
         this.title = title;
         this.body = body;
         this.labels = labels;
     }
-
+   //todo need to fix it
     @Parameterized.Parameters
-    public static Collection<Object[]> data(){
-        return readDataFromFile(
-                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\issues.txt");
+    public static List<List<String>> data() {
+        return readExcelFile("C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\issueData.xlsx", "Sheet1");
     }
 
     @Before
-    public void signIn(){
+    public void signIn() {
         page = new LoginPage(driver)
                 .login(System.getProperty("login"), System.getProperty("password"))
                 .openOurProject()
                 .openProjectIssues();
     }
-/*
-    @Test
-    public void checkIssueCreation(){
-        List<String> labels = new ArrayList<>();
-        labels.add("bug");
-        labels.add("good first issue");
-        page.pressToCreateNewIssue()
-                .createNewIssue("Automated title", "Test Body", labels)
-                .validateCreatedIssue("Automated title", "Test Body", labels);
-    }
-*/
-    // todo код без выполнения @Parameters выше
 
     @Test
-    public void checkIssueCreation(){
+    public void checkIssueCreation() {
         page.pressToCreateNewIssue()
                 .createNewIssue(this.title, this.body, this.labels)
                 .validateCreatedIssue(this.title, this.body, this.labels);
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         page.logout()
-            .validateLogout();
+                .validateLogout();
     }
+
 }

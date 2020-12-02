@@ -11,11 +11,11 @@ import tests.BaseTest;
 
 import java.util.Collection;
 import java.util.List;
+
 import static helpers.FileHelper.readDataFromFile;
 
-
 @RunWith(Parameterized.class)
-public class IssueCreatingTest extends BaseTest {
+public class IssueCreatingFromTxtFileTest extends BaseTest {
 
     private IssuesPage page;
 
@@ -23,7 +23,7 @@ public class IssueCreatingTest extends BaseTest {
     private String body;
     private List<String> labels;
 
-    public IssueCreatingTest(String title, String body, List<String> labels) {
+    public IssueCreatingFromTxtFileTest(String title, String body, List<String> labels) {
         this.title = title;
         this.body = body;
         this.labels = labels;
@@ -32,7 +32,7 @@ public class IssueCreatingTest extends BaseTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data(){
         return readDataFromFile(
-                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\issues.txt");
+                "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\issueData.txt");
     }
 
     @Before
@@ -42,18 +42,6 @@ public class IssueCreatingTest extends BaseTest {
                 .openOurProject()
                 .openProjectIssues();
     }
-/*
-    @Test
-    public void checkIssueCreation(){
-        List<String> labels = new ArrayList<>();
-        labels.add("bug");
-        labels.add("good first issue");
-        page.pressToCreateNewIssue()
-                .createNewIssue("Automated title", "Test Body", labels)
-                .validateCreatedIssue("Automated title", "Test Body", labels);
-    }
-*/
-    // todo код без выполнения @Parameters выше
 
     @Test
     public void checkIssueCreation(){
@@ -65,6 +53,7 @@ public class IssueCreatingTest extends BaseTest {
     @After
     public void tearDown(){
         page.logout()
-            .validateLogout();
+                .validateLogout();
     }
+
 }
