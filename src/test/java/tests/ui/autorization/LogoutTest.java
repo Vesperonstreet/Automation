@@ -1,11 +1,11 @@
-package tests.autorization;
+package tests.ui.autorization;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPage;
 import pages.MainPage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
 import static helpers.ColorPrinter.printMessageInYellow;
 

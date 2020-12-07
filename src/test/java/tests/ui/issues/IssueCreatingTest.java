@@ -1,4 +1,4 @@
-package tests.issues;
+package tests.ui.issues;
 
 import org.junit.After;
 import org.junit.Before;
@@ -7,11 +7,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPage;
 import pages.issues.IssuesPage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
 import java.util.Collection;
 import java.util.List;
-import static helpers.FileHelper.readDataFromFile;
+
+import static helpers.FileHelper.readDataFromTxtFile;
 
 
 @RunWith(Parameterized.class)
@@ -31,7 +32,7 @@ public class IssueCreatingTest extends BaseTest {
 
     @Parameterized.Parameters
     public static Collection<Object[]> data(){
-        return readDataFromFile(
+        return readDataFromTxtFile(
                 "C:\\Users\\Admin\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\issues.txt");
     }
 

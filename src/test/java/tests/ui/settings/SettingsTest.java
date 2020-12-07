@@ -1,11 +1,11 @@
-package tests.settings;
+package tests.ui.settings;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPage;
 import pages.settings.SettingsPage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
 public class SettingsTest extends BaseTest {
 

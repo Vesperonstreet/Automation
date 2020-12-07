@@ -36,24 +36,41 @@ public class ExcelHelper {
     }
 
     // todo Test in class SomeTest
-    public static List<List<String>> readExcelFile(String path, String sheetName) {
-
-        List<List<String>> result = new ArrayList<>();
+    public static List<Object[]> readDataFromExcelFile(String path, String sheetName){
+        List<Object[]> result = new ArrayList<>();
         try {
             Workbook file = new XSSFWorkbook(path);
             Sheet sheet = file.getSheet(sheetName);
-            for (int i = 0; i < sheet.getLastRowNum(); i++) {
+            LOG.info("Начинаем считывать данные из Excel файла:");
+            for(int i = 0; i < sheet.getLastRowNum()+1; i++){
+                LOG.debug("считываем рядок №" + i);
                 Row row = sheet.getRow(i);
-                List<String> cells = new ArrayList<>();
-                for (int a = 0; a < row.getLastCellNum(); a++) {
+                String[] testData= new String[2];
+                List<String> labels = new ArrayList<>();
+                LOG.debug("Считываем ячейки из ряда:");
+                for (int a = 0; a < row.getLastCellNum(); a++){
+                    LOG.debug("считываем ячейку №" + a);
                     Cell cell = row.getCell(a);
-                    cells.add(cell.getStringCellValue());
+                    if (a == 0/* || a == 1*/) {
+                        LOG.debug("Ячейка №" + a + ": Название Issue");
+                        testData[a]=cell.getStringCellValue();
+                    }
+                    else if (a == 1){
+                        LOG.debug("Ячейка №" + a + ": Текст Issue");
+                        testData[a]=cell.getStringCellValue();
+                    }
+                    else {
+                        LOG.debug("Ячейка №" + a + ": Лейбл " + cell.getStringCellValue());
+                        labels.add(cell.getStringCellValue());
+                    }
                 }
-                result.add(cells);
+                LOG.debug("Добавляем результат");
+                result.add(new Object[]{testData[0], testData[1], labels});
             }
         } catch (IOException e) {
             LOG.error(e);
         }
+        LOG.debug("Заканчиваем считывание");
         return result;
     }
 

@@ -1,4 +1,4 @@
-package tests;
+package tests.ui;
 
 import org.junit.Test;
 
@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static helpers.ExcelHelper.*;
-import static helpers.FileHelper.readLinesFromFile;
-import static helpers.FileHelper.writeTextToFile;
 
 public class SomeTest {
 

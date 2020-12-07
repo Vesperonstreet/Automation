@@ -1,17 +1,15 @@
-package tests.autorization;
+package tests.ui.autorization;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.NoSuchElementException;
+
 import static helpers.ColorPrinter.printMessageInYellow;
 import static helpers.FileHelper.readAuthDataFromFile;
 

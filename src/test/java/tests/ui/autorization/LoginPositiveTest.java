@@ -1,4 +1,4 @@
-package tests.tabs;
+package tests.ui.autorization;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -6,11 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.NoSuchElementException;
 import pages.LoginPage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
 import static helpers.ColorPrinter.printMessageInYellow;
 
-public class LoginNavigationTabsCheck extends BaseTest {
+public class LoginPositiveTest extends BaseTest {
 
     private LoginPage page;
 
@@ -25,12 +25,8 @@ public class LoginNavigationTabsCheck extends BaseTest {
         try{
             page.checkAuthFields()
                     .login(System.getProperty("login"),
-                            System.getProperty("password"))
+                            System.getProperty("password"));
 //                    .validateLogin();
-                    .openOurProject()
-                    .validateTabs()
-                    .logout()
-                    .validateLogout();
         } catch (NoSuchElementException e){
             Assert.fail(e.getMessage());
         }

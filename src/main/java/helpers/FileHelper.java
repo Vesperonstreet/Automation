@@ -34,7 +34,7 @@ public class FileHelper {
         return result;
     }
 
-    public static Collection<Object[]> readDataFromFile(String path) {
+    public static Collection<Object[]> readDataFromTxtFile(String path) {
         Collection<Object[]> result = new ArrayList<>();
         List<String> lines = readLinesFromFile(path);
         for (String line : lines) {

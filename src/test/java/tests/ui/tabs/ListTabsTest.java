@@ -1,11 +1,11 @@
-package tests.tabs;
+package tests.ui.tabs;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPage;
 import pages.code.ProjectPage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
 public class ListTabsTest extends BaseTest {
 
