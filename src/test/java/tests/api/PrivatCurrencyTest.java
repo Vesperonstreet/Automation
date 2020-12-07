@@ -14,8 +14,26 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.and;
 public class PrivatCurrencyTest extends BaseApiTest {
 
     //          https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5
+
     @Test
     public void checkJsonCurrencyAPI() {
+        given()
+                .queryParam("json")
+                .queryParam("exchange")
+                .queryParam("coursid", 5)
+                .log()
+                .all()
+                .when()
+                .get("https://api.privatbank.ua/p24api/pubinfo")
+                .then()
+                .log()
+                .all()
+                .statusCode(200);
+    }
+
+
+
+ /*
         Map<String, Object> body = new HashMap<>();
         Map<String, String> data = new HashMap<>();
 
@@ -23,7 +41,6 @@ public class PrivatCurrencyTest extends BaseApiTest {
 
         data.put("key", "value");
         body.put("data", data);
-
 
         List<String> result = given()
                 .spec(this.reqSpec)
@@ -42,4 +59,6 @@ public class PrivatCurrencyTest extends BaseApiTest {
                 .getList("exchangerates.row.exchangerate .ccy");
         result.forEach(System.out::println);
     }
+
+  */
 }
