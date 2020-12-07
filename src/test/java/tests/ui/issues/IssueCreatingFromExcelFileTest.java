@@ -30,7 +30,7 @@ public class IssueCreatingFromExcelFileTest extends BaseTest {
         this.body = body;
         this.labels = labels;
     }
-   //todo need to fix it
+
     @Parameterized.Parameters
     public static Collection<Object[]> data(){
         if (System.getProperty("readFromExcel").equals("true")) {
