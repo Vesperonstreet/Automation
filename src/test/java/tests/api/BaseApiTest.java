@@ -15,7 +15,6 @@ public class BaseApiTest {
     @Before
     public void setSpecs(){
         reqSpec = new RequestSpecBuilder()
-                .setBaseUri("https://api.privatbank.ua/p24api")
                 .log(LogDetail.ALL)
                 .build();
         resSpec = new ResponseSpecBuilder()

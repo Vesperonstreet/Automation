@@ -1,7 +1,8 @@
-package tests.api;
+package tests.api.priva24;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
+import tests.api.BaseApiTest;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +24,7 @@ public class PrivatCurrencyTest extends BaseApiTest {
                 .queryParam("coursid", 5)
                 .log()
                 .all()
+                .baseUri("https://api.privatbank.ua/p24api")
                 .when()
                 .get("https://api.privatbank.ua/p24api/pubinfo")
                 .then()

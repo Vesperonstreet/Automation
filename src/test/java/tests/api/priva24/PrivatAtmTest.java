@@ -1,6 +1,7 @@
-package tests.api;
+package tests.api.priva24;
 
 import org.junit.Test;
+import tests.api.BaseApiTest;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.*;
@@ -19,6 +20,7 @@ public class PrivatAtmTest extends BaseApiTest {
                 .queryParam("city", "Харьков")
                 .log()
                 .all(true)
+                .baseUri("https://api.privatbank.ua/p24api")
                 .when()
                 .get("/infrastructure")
                 .then()
