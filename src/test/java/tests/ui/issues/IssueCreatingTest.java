@@ -1,5 +1,6 @@
 package tests.ui.issues;
 
+import io.qameta.allure.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,6 +56,13 @@ public class IssueCreatingTest extends BaseTest {
     }
 */
     // todo код без выполнения @Parameters выше
+
+    @Owner("SergiiD")
+    @Feature("Create")
+    @Stories({@Story("Issue Creating")})
+    @Link("PNG-15446")
+    @Description("About test")
+    @Severity(SeverityLevel.CRITICAL)
 
     @Test
     public void checkIssueCreation(){

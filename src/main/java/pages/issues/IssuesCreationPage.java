@@ -1,6 +1,7 @@
 package pages.issues;
 
 import helpers.Level;
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +29,7 @@ public class IssuesCreationPage extends BaseAuthorizedPage {
     private final By labelsShowButton = By.id("labels-select-menu");
     private final By IssueLabels = By.xpath("//span[@class = 'name']");
 
+    @Step("Создаем новую задачу")
     public IssueInfoPage createNewIssue(String title, String body, List<String> testLabels) {
         printColorMessage("Создаем новую задачу", log, Level.INFO);
         Assert.assertTrue(driver.findElement(IssueTitleField).isDisplayed());

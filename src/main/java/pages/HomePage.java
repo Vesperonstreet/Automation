@@ -18,17 +18,18 @@ public class HomePage extends BasePage{
         super(driver, TITLE);
     }
 
-    private final By title = By.xpath("//h1[@class = 'h000-mktg text-white lh-condensed-ultra mb-3']");
-    private final By description = By.xpath("//p[@class = 'lead-mktg mb-4']");
+    private final By title = By.xpath("//h1[@class = 'h2-5-mktg-fluid h1-sm-mktg-fluid h0-lg-mktg-fluid text-white mb-3-fluid position-relative z-2']");
+    private final By description = By.xpath("//p[@class = 'f4-mktg-fluid f2-sm-mktg-fluid text-gray-light-mktg mr-lg-n4-fluid mb-4-fluid lh-condensed lh-sm-default position-relative z-2']");
 
     public HomePage validateLogout(){
         printColorMessage("Проверка успешного выхода из системы", log, Level.INFO);
         try {
-            Assert.assertEquals("Built for developers",
+ /*           Assert.assertEquals("Where the world" +
+                            "builds software",
                                 driver.findElement(title).getText());
-            Assert.assertEquals("GitHub is a development platform inspired by the way you work. " +
-                                "From open source to business, you can host and review code, manage projects, " +
-                                "and build software alongside 50 million developers.",
+ */           Assert.assertEquals("Millions of developers and companies build, ship, and " +
+                            "maintain their software on GitHub—the largest and " +
+                            "most advanced development platform in the world.",
                                 driver.findElement(description).getText());
         } catch (NoSuchElementException n){
             Assert.fail("Выход не выполнен (((" + n.getMessage());

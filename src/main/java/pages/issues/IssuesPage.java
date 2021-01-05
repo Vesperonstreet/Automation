@@ -1,6 +1,7 @@
 package pages.issues;
 
 import helpers.Level;
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,7 @@ public class IssuesPage extends BaseAuthorizedPage {
 
     private By newIssuesButton = By.xpath("//a[@class = 'btn btn-primary']");
 
+    @Step("Нажимаем на \"CreateNewIssue\"")
     public IssuesCreationPage pressToCreateNewIssue(){
         printColorMessage("Нажимаем на \"Создать новую задачу\"", log, Level.INFO);
         Assert.assertTrue(driver.findElement(newIssuesButton).isDisplayed());
