@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.BaseAuthorizedPage;
-import pages.BasePage;
 
 import static helpers.ColorPrinter.printColorMessage;
 import static helpers.ColorPrinter.printMessageInYellow;

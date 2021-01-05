@@ -7,7 +7,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import static helpers.ColorPrinter.printColorMessage;
-import static helpers.ColorPrinter.printMessageInYellow;
 import static helpers.ColorPrinter.printMessageInGreen;
 
 public class HomePage extends BasePage{
