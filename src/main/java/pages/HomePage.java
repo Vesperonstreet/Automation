@@ -18,7 +18,7 @@ public class HomePage extends BasePage{
     }
 
     private final By title = By.xpath("//h1[@class = 'h2-5-mktg-fluid h1-sm-mktg-fluid h0-lg-mktg-fluid text-white mb-3-fluid position-relative z-2']");
-    private final By description = By.xpath("//p[@class = 'f4-mktg-fluid f2-sm-mktg-fluid text-gray-light-mktg mr-lg-n4-fluid mb-4-fluid lh-condensed lh-sm-default position-relative z-2']");
+    private final By description = By.xpath("//p[@class = 'f4-mktg-fluid f2-sm-mktg-fluid text-gray-light-mktg mr-lg-n4 mb-4 lh-condensed lh-sm-default position-relative z-2']");
 
     public HomePage validateLogout(){
         printColorMessage("Проверка успешного выхода из системы", log, Level.INFO);
@@ -36,5 +36,4 @@ public class HomePage extends BasePage{
         printMessageInGreen("Выход выполнен.", log);
         return this;
     }
-    
 }

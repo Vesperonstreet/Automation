@@ -21,7 +21,7 @@ public class IssueInfoPage extends BaseAuthorizedPage {
         super(driver, TITLE);
     }
 
-    private final By title = By.xpath("//span[@class = 'js-issue-title']");
+    private final By title = By.xpath("//span[@class = 'js-issue-title markdown-title']");
     private final By statusImage = By.xpath("//div[contains(@class, 'flex-md-self-center')]/span");
     private final By description = By.xpath("//td[contains(@class, 'js-comment-body')]");
     private final By labels = By.xpath("//*[@class = 'lh-condensed-ultra']");
